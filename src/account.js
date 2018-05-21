@@ -1,4 +1,6 @@
-function bankAccount() {
+var accountStatement = require('./accountStatement.js');
+
+function bankAccount(statement = accountStatement()) {
   var balance = 0;
 
   return {
@@ -10,9 +12,9 @@ function bankAccount() {
     },
     getBalance: function(amount) {
       return balance;
-    }
+    },
+    statement: statement
   };
 }
-
 
 module.exports = bankAccount;
