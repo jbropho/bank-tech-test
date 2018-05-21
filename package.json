@@ -4,7 +4,7 @@
   "description": "makers academy practice tech test",
   "main": "account.js",
   "scripts": {
-    "test": "mocha"
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/jbropho/bank-tech-test#readme",
   "devDependencies": {
-    "mocha": "^5.2.0"
+    "jasmine": "^3.1.0"
   }
 }
