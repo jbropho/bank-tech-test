@@ -1,0 +1,22 @@
+{
+  "name": "bank-tech-test",
+  "version": "1.0.0",
+  "description": "makers academy practice tech test",
+  "main": "account.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbropho/bank-tech-test.git"
+  },
+  "author": "Jordan Brooks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jbropho/bank-tech-test/issues"
+  },
+  "homepage": "https://github.com/jbropho/bank-tech-test#readme",
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
+}
