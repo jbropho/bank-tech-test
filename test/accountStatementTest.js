@@ -10,12 +10,21 @@ describe('Account Statement', function() {
     statement = accountStatement();
   });
 
-  describe('newDeposit', function() {
+  describe('makeDeposit', function() {
     it('adds an a new deposit object to history', function(){
-      statement.newDeposit(100, 0);
+      statement.makeDeposit(100, 0);
       transaction = statement.getHistory()[0];
       assert.equal(transaction.deposit, 100);
       assert.equal(transaction.balance, 100);
     });
+  });
+
+  describe('makeWithdrawal', function(){
+   it('adds a new withdraw obejct to history', function() {
+     statement.makeWithdrawal(100, 0);
+     transaction = statement.getHistory()[0];
+     assert.equal(transaction.withdraw, 100);
+     assert.equal(transaction.balance, -100);
+   });
   });
 });
