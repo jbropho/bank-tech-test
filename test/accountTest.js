@@ -21,6 +21,18 @@ describe ('Account', function() {
       balance = account.getBalance();
       assert.equal(balance, 55);
     });
+
+    it('can handle inputs to 1 decimal place', function() {
+      account.deposit(101.1);
+      balance = account.getBalance();
+      assert.equal(balance, 101.1)
+    });
+
+    it('can handle inputs to 2 decimal places', function() {
+      account.deposit(103.12);
+      balance = account.getBalance();
+      assert.equal(balance, 103.12)
+    });
   });
 
 
@@ -35,6 +47,18 @@ describe ('Account', function() {
       account.withdraw('55');
       balance = account.getBalance();
       assert.equal(balance, -55);
+    });
+
+    it('can handle inputs to 1 decimal place', function() {
+      account.withdraw(101.1);
+      balance = account.getBalance();
+      assert.equal(balance, -101.1);
+    });
+
+    it('can handle inputs to 2 decimal places', function() {
+      account.withdraw(103.12);
+      balance = account.getBalance();
+      assert.equal(balance, -103.12);
     });
   });
 });

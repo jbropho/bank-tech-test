@@ -3,7 +3,7 @@ function bankAccount() {
 
   return {
     deposit: function(amount) {
-      balance += amount;
+      balance += parseFloat(amount);
     },
     withdraw: function(amount) {
       balance -= amount;
