@@ -27,10 +27,4 @@ describe('Account Statement', function() {
      assert.equal(transaction.balance, -100);
    });
   });
-
-  describe('getDate', function() {
-    it('returns todays date in format MM/DD/YYYY', function() {
-
-    });
-  });
 });
