@@ -1,33 +1,27 @@
 function statementPrinter() {
 
   function formatCashDisplay(amount) {
-    if(!amount) return "";
-    
-    var decimals = countDecimals(parseInt(amount));
-
-    switch(decimals) {
-      case 0:
-         return amount + ".00";
-      case 1:
-         return amount + "0";
-      default: 
-         return amount;
-    }
+    return amount ? amount.toFixed(2) : "";
   }
 
-  var countDecimals = function (value) {
-    if(Math.floor(value) === value) return 0;
-    return value.toString().split(".")[1].length || 0; 
-  };
+  function formatTransaction(transaction) {
+    var date = transaction.date;
+    var deposit = formatCashDisplay(transaction.deposit);
+    var withdraw = formatCashDisplay(transaction.withdraw);
+    var balance = formatCashDisplay(transaction.balance);
+    var spacer = " || ";
+    return `${date} ${spacer} ${deposit} ${withdraw} ${spacer} ${balance}`;
+  }
+
+  function displayStatement(statement) {
+    console.log('date || credit || debit || balance');
+    statement.forEach(item => console.log(item));
+  }
 
   return {
-    formatTransaction: function(transaction) {
-       var date = transaction.date;
-       var deposit = formatCashDisplay(transaction.deposit);
-       var withdraw = formatCashDisplay(transaction.withdraw);
-       var balance = formatCashDisplay(transaction.balance);
-       var spacer = " || ";
-       return date + spacer + deposit + spacer + withdraw + spacer + balance;
+    printHistory: function(history) {
+      var formatted = history.map( x => formatTransaction(x)).reverse();
+      displayStatement(formatted);
     }
   };
 }
