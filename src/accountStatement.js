@@ -9,8 +9,8 @@ function accountStatement() {
   function getFormattedDate() {
     var date = new Date();
     var yyyy = date.getFullYear();
-    var mm = date.getMonth().toFixed(2);
-    var dd = date.getDate().toFixed(2);
+    var mm = date.getMonth().toLocaleString('en-US', {minimumIntegerDigits: 2});
+    var dd = date.getDate().toLocaleString('en-US', {minimumIntegerDigits: 2});
     return dd + '/' + mm + '/' + yyyy; 
   }
   
