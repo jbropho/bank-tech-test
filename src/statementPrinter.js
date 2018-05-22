@@ -1,4 +1,5 @@
 function statementPrinter() {
+  var spacer = " || ";
 
   function formatCashDisplay(amount) {
     return amount ? amount.toFixed(2) : "";
@@ -9,7 +10,6 @@ function statementPrinter() {
     var deposit = formatCashDisplay(transaction.deposit);
     var withdraw = formatCashDisplay(transaction.withdraw);
     var balance = formatCashDisplay(transaction.balance);
-    var spacer = " || ";
     return `${date} ${spacer} ${deposit} ${withdraw} ${spacer} ${balance}`;
   }
 
@@ -27,3 +27,5 @@ function statementPrinter() {
 }
 
 module.exports = statementPrinter;
+
+// mock console log 
