@@ -4,29 +4,31 @@ var statementPrinter = require('./statementPrinter.js');
 function bankAccount(statement, printer) {
   var balance = 0;
 
-  function makeDeposit(amount) {
+  function deposit(amount) {
     statement.makeDeposit(amount, balance);
     balance += amount;
+    return balance;
   }
 
-  function makeWithdrawal(amount) {
+  function withdraw(amount) {
     statement.makeWithdrawal(amount, balance);
     balance -= amount;
+    return balance;
   }
-   
+  
+  function getBalance() {
+    return balance;
+  }
+  
+  function printStatement() {
+    printer.printHistory(statement.getHistory());
+  }
+
   return {
-    deposit: function(amount) {
-      makeDeposit(amount);
-    },
-    withdraw: function(amount) {
-      makeWithdrawal(amount);
-    },
-    getBalance: function(amount) {
-      return balance;
-    },
-    printStatement: function() {
-      printer.printHistory(statement.getHistory());
-    }
+    deposit: deposit,
+    withdraw: withdraw,
+    getBalance: getBalance,
+    printStatement: printStatement
   };
 }
 
