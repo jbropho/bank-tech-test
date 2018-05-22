@@ -60,4 +60,27 @@ describe ('Account', function() {
       assert.equal(transaction, -103.12);
     });
   });
+
+  describe('printStatement', function() {
+    it('delegates to printer and statement objects', function() {
+       var printer = { printHistory: function(){ return true } };
+       var statement = { getHistory: function() { return true } };
+       var account = accountModule(statement, printer);
+
+       spyOn(printer, 'printHistory');
+       spyOn(statement, 'getHistory');
+
+       account.printStatement();
+
+       expect(printer.printHistory).toHaveBeenCalled();
+       expect(statement.getHistory).toHaveBeenCalled();
+    });
+  });
+
+  describe('getBalance', function() {
+    it('returns the account balance', function() {
+      var value = account.getBalance();
+      expect(value).toBe(0);
+    });
+  });
 });
