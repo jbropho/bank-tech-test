@@ -1,12 +1,26 @@
 function accountStatement() {
   var history = [];
 
-  function addTransaction(transaction) {
-    transaction.date = getFormattedDate();
+  function makeDeposit(amount, currentBalance) {
+    var deposit = {deposit: amount, balance: currentBalance + amount};
+    _addTransaction(deposit);
+  }
+
+  function makeWithdrawal(amount, currentBalance) {
+    var withdraw = {withdraw: amount, balance: currentBalance - amount};
+    _addTransaction(withdraw);
+  }
+
+  function getHistory() {
+    return history;
+  }
+
+  function _addTransaction(transaction) {
+    transaction.date = _getFormattedDate();
     history.push(transaction);
   }
 
-  function getFormattedDate() {
+  function _getFormattedDate() {
     var date = new Date();
     var yyyy = date.getFullYear();
     var mm = date.getMonth().toLocaleString('en-US', {minimumIntegerDigits: 2});
@@ -15,17 +29,9 @@ function accountStatement() {
   }
   
   return {
-     makeDeposit: function(amount, currentBalance) {
-       var deposit = {deposit: amount, balance: currentBalance + amount};
-       addTransaction(deposit);
-     },
-     makeWithdrawal: function(amount, currentBalance) {
-       var withdraw = {withdraw: amount, balance: currentBalance - amount};
-       addTransaction(withdraw);
-     },
-     getHistory: function() {
-       return history;
-     }
+     makeDeposit: makeDeposit,
+     makeWithdrawal: makeWithdrawal,
+     getHistory: getHistory
   };
 }
 
