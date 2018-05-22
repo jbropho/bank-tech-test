@@ -27,4 +27,11 @@ describe('Account Statement', function() {
      assert.equal(transaction.balance, -100);
    });
   });
+  describe('getHistory', function(){
+    it('returns the account history', function() {
+      var value = statement.getHistory();
+      expect(typeof value).toBe("object");
+      expect(value.length).toBe(0);
+    });
+  })
 });
