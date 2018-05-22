@@ -1,14 +1,16 @@
 var assert = require('assert');
 var accountModule = require('../src/account.js');
 
-var accountStatement = require('../src/accountStatement.js');
-var statementPrinter = require('../src/statementPrinter.js');
 
 describe ('Account', function() {
   var account;
   var balance;
-  var statement = accountStatement();
-  var printer = statementPrinter();
+  var printer;
+  var statement = {
+    makeDeposit: function() { return true },
+    makeWithdrawal: function() { return true }
+  };
+
 
   beforeEach(function() {
      account = accountModule(statement, printer);
