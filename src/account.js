@@ -1,6 +1,7 @@
 var accountStatement = require('./accountStatement.js');
+var statementPrinter = require('./statementPrinter.js');
 
-function bankAccount(statement = accountStatement()) {
+function bankAccount(statement, printer) {
   var balance = 0;
 
   function makeDeposit(amount) {
@@ -23,7 +24,9 @@ function bankAccount(statement = accountStatement()) {
     getBalance: function(amount) {
       return balance;
     },
-    statement: statement
+    printStatement: function() {
+      printer.printHistory(statement.getHistory());
+    }
   };
 }
 
