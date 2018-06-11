@@ -1,6 +1,3 @@
-var accountStatement = require('./accountStatement.js');
-var statementPrinter = require('./statementPrinter.js');
-
 function bankAccount(statement, printer) {
   var balance = 0;
 
