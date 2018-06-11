@@ -30,9 +30,11 @@ single interface, the account object.
 ## Positives
 * Encapsulated state and exposed a series of getter/setter methods for interacting
 with application state 
-* Seperated concerns into clearly defined components which execute a single responsibility
+* Seperated concerns into clearly defined components which provide a single responsibility
 
 ## If I had more time
 * I would refactor my design to incorporate prototypal inheritance. I appreciate the
-encapsulation provided by closures, however, this approach does make modifying features more difficult. I would like to adopy a hybrid approach which allows encapsulation and makes the code flexible for change.
+encapsulation provided by closures, however, this approach does make modifying 
+features more difficult. I would like to adopy a hybrid approach which allows
+encapsulation and makes the code flexible for change.
 * I would like to expand on the CLI interface to allow a better user experience
