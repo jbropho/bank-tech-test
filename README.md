@@ -22,9 +22,10 @@ Javascript - Jasmine
       
 ## Approach
 I decided to split my application into three seperate components, a bank account,
-a statement and a statement printer. I wanted to use dependency injection, by inserting my statement and printer objects into my account object. This approach
-allows me to expose all of the apps functionality via a single interface, the 
-account object. 
+a statement and a statement printer. I wanted to use dependency injection, 
+by inserting my statement and printer objects into my account object.
+This approach allows me to expose all of the apps functionality via a 
+single interface, the account object. 
 
 ## Positives
 * Encapsulated state and exposed a series of getter/setter methods for interacting
