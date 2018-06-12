@@ -7,7 +7,7 @@ Javascript - Jasmine
 
 ## Setup:
 
-   ```
+ ```
    $ git clone https://github.com/jbropho/bank-tech-test
    $ cd bank-tech-test
    $ node inspect src/app.js
@@ -19,6 +19,7 @@ Javascript - Jasmine
     * account.withdraw(amount)
     * account.getBalance()
     * account.printStatement()
+```
       
 ## Approach
 I decided to split my application into three seperate components, a bank account,
